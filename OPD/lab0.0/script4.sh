@@ -8,27 +8,27 @@ touch tmp/error
 #Подсчитать количество строк содержимого файлов: swoobat, duosion, результат записать в файл в директории /tmp, ошибки доступа перенаправить в файл в директории /tmp
 echo -e '1-------------'
 touch tmp/result.txt
-cat magby8/duosion magby8/swoobat 2> tmp/error | wc -l >> tmp/result.txt  
+cat magby8/duosion magby8/swoobat 2> /tmp/error | wc -l >> /tmp/result.txt  
 echo -e 'ready!'
 
 #Вывести список имен файлов в директории bronzor4, список отсортировать по имени a->z, ошибки доступа перенаправить в файл в директории /tmp
 echo -e '2-------------'
-ls -p bronzor4/ | grep -v / | sort
+ls -p bronzor4/ | grep -v / | sort 2>/tmp/error
 
 #Вывести содержимое файлов: swoobat, duosion, rattata, vibrava, graveler с номерами строк, оставить только строки, заканчивающиеся на 'n', регистр символов игнорировать, ошибки доступа перенаправить в файл в директории /tmp
 echo -e '3-------------'
-cat -n magcargo6_86 nidoranF4/vibrava nidoranF4/graveler magby8/swoobat magby8/rattata magby8/duosion 2> tmp/error | grep "[Nn]$"
+cat -n magcargo6_86 nidoranF4/vibrava nidoranF4/graveler magby8/swoobat magby8/rattata magby8/duosion 2> /tmp/error | grep -i "[Nn]$"
 
 #Вывести четыре последних элемента рекурсивного списка имен и атрибутов файлов в директории lab0, содержащих строку "ma", список отсортировать по возрастанию количества жестких ссылок, ошибки доступа не подавлять и не перенаправлять
 echo -e '4-------------'
-ls -lR | sort -nk 2 | grep 'ma' | tail -4
+ls -lR | sort -nk 2 | grep 'ma' | tail -n 4
 
 #Вывести четыре первых элемента рекурсивного списка имен и атрибутов файлов в директории lab0, содержащих строку "ble", список отсортировать по возрастанию размера, подавить вывод ошибок доступа
 echo -e '5-------------'
-ls -lSR 2> /dev/null |  grep 'ble'
+ls -lR 2> /dev/null | sort -rnk 5 | grep 'ble' | head -n 4 
 
 #Вывести рекурсивно список имен и атрибутов файлов в директории bronzor4, список отсортировать по убыванию даты доступа к файлу, подавить вывод ошибок доступа
 echo -e '6-------------'
-ls -lSt bronzor4/ 2>/dev/null
+ls -lRt bronzor4/ 2>/dev/null
 
 echo -e 'готово!'
