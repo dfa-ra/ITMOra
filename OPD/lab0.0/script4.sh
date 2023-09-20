@@ -8,7 +8,7 @@ touch tmp/error
 #Подсчитать количество строк содержимого файлов: swoobat, duosion, результат записать в файл в директории /tmp, ошибки доступа перенаправить в файл в директории /tmp
 echo -e '1-------------'
 touch tmp/result.txt
-cat magby8/duosion magby8/swoobat 2> tmp/error | wc -c >> tmp/result.txt  
+cat magby8/duosion magby8/swoobat 2> tmp/error | wc -l >> tmp/result.txt  
 echo -e 'ready!'
 
 #Вывести список имен файлов в директории bronzor4, список отсортировать по имени a->z, ошибки доступа перенаправить в файл в директории /tmp
